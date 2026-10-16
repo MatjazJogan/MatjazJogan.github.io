@@ -2,272 +2,113 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Matjaž Jogan</title>
-<meta name="description" content="Matjaž Jogan — research on AI for surgery and on human perception, University of Pennsylvania.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23143d59'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' text-anchor='middle' fill='%23fff'%3EMJ%3C/text%3E%3C/svg%3E">
+<meta name="description" content="Matjaž Jogan, Department of Surgery, University of Pennsylvania. Publications in AI for surgery and perception.">
 <style>
-:root {
-  --bg: #f7f6f2;
-  --panel: #ffffff;
-  --ink: #15191e;
-  --ink-2: #4a525c;
-  --ink-3: #7b838d;
-  --rule: #e4e1d8;
-  --accent: #1f5f8b;
-  --accent-soft: #e5eef5;
-  --surg: #1f5f8b;
-  --perc: #9a4f1f;
-  --font-ui: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
-  --radius: 14px;
-}
+:root { --bg: #fff; --ink: #111; --ink-2: #555; --rule: #e5e5e5; --link: #1a4f8a; }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #101317; --panel: #171b21; --ink: #eef1f4; --ink-2: #b4bcc6; --ink-3: #808a95; --rule: #272d35;
-    --accent: #6fb0e0; --accent-soft: #1b2a37; --surg: #6fb0e0; --perc: #e39a69;
-    color-scheme: dark;
-  }
+  :root:not([data-theme="light"]) { --bg: #121212; --ink: #e8e8e8; --ink-2: #a0a0a0; --rule: #2a2a2a; --link: #8bb8e8; color-scheme: dark; }
 }
-:root[data-theme="dark"] {
-  --bg: #101317; --panel: #171b21; --ink: #eef1f4; --ink-2: #b4bcc6; --ink-3: #808a95; --rule: #272d35;
-  --accent: #6fb0e0; --accent-soft: #1b2a37; --surg: #6fb0e0; --perc: #e39a69;
-  color-scheme: dark;
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 var(--font-ui); -webkit-font-smoothing: antialiased; }
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; text-underline-offset: 3px; }
-a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
-.wrap { max-width: 1040px; margin: 0 auto; padding-inline: 28px; }
-@media (max-width: 520px) { .wrap { padding-inline: 16px; } }
-
-nav.top { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule); }
-nav.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 56px; }
-nav.top .brand { font: 600 17px var(--font-display); color: var(--ink); }
-nav.top ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; font-size: 14px; }
-nav.top ul a { color: var(--ink-2); }
-@media (max-width: 640px) { nav.top ul { gap: 14px; } nav.top ul li.opt { display: none; } }
-
-header.hero { padding-block: 72px 48px; display: grid; gap: 22px; }
-.kicker { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin: 0; }
-h1 { font: 600 clamp(40px, 7vw, 64px)/1.02 var(--font-display); letter-spacing: -.015em; margin: 0; }
-.bio { max-width: 64ch; font-size: 18px; color: var(--ink-2); margin: 0; }
-.bio b { color: var(--ink); font-weight: 600; }
-.links { display: flex; flex-wrap: wrap; gap: 10px; }
-.pill { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border: 1px solid var(--rule); border-radius: 999px; background: var(--panel); color: var(--ink); font-size: 14px; font-weight: 500; }
-.pill:hover { border-color: var(--accent); text-decoration: none; }
-.pill svg { width: 16px; height: 16px; flex: none; fill: currentColor; }
-
-section { padding-block: 40px; border-top: 1px solid var(--rule); }
-h2 { font: 600 28px/1.15 var(--font-display); margin: 0 0 8px; letter-spacing: -.01em; }
-.sub { color: var(--ink-2); max-width: 66ch; margin: 0 0 26px; }
-
-.themes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-@media (max-width: 860px) { .themes { grid-template-columns: 1fr; } }
-.theme { background: var(--panel); border: 1px solid var(--rule); border-radius: var(--radius); padding: 22px; display: grid; gap: 10px; align-content: start; }
-.theme .tag { width: 36px; height: 4px; border-radius: 2px; background: var(--surg); }
-.theme.perc .tag { background: var(--perc); }
-.theme h3 { font-size: 17px; margin: 0; }
-.theme p { margin: 0; color: var(--ink-2); font-size: 15px; }
-
-.demos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-@media (max-width: 760px) { .demos { grid-template-columns: 1fr; } }
-a.demo { display: grid; gap: 10px; background: var(--panel); border: 1px solid var(--rule); border-radius: var(--radius); padding: 22px; color: var(--ink); transition: border-color .15s, transform .15s; }
-a.demo:hover { text-decoration: none; border-color: var(--accent); transform: translateY(-2px); }
-@media (prefers-reduced-motion: reduce) { a.demo { transition: none; } a.demo:hover { transform: none; } }
-a.demo .meta { font-size: 13px; color: var(--ink-3); }
-a.demo h3 { font: 600 20px/1.25 var(--font-display); margin: 0; }
-a.demo p { margin: 0; color: var(--ink-2); font-size: 15px; }
-a.demo .go { font-size: 14px; font-weight: 600; color: var(--accent); }
-.demo-art { height: 92px; border-radius: 10px; background: var(--accent-soft); overflow: hidden; }
-.demo-art svg { width: 100%; height: 100%; display: block; }
-
-.filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
-.filters button { font: 500 14px var(--font-ui); padding: 6px 14px; border-radius: 999px; border: 1px solid var(--rule); background: var(--panel); color: var(--ink-2); cursor: pointer; }
-.filters button[aria-pressed="true"] { background: var(--ink); color: var(--panel); border-color: var(--ink); }
-.year { display: grid; grid-template-columns: 72px 1fr; gap: 0 20px; padding-block: 6px; }
-@media (max-width: 560px) { .year { grid-template-columns: 1fr; } }
-.year > h3 { font: 600 20px var(--font-display); color: var(--ink-3); margin: 14px 0 0; }
-.year ol { list-style: none; margin: 0; padding: 0; }
-.pub { padding: 14px 0; border-bottom: 1px solid var(--rule); display: grid; gap: 4px; }
-.year:last-of-type .pub:last-child { border-bottom: 0; }
-.pub .t { font-weight: 600; font-size: 16px; line-height: 1.4; }
-.pub .t a { color: var(--ink); }
-.pub .t a:hover { color: var(--accent); }
-.pub .a { color: var(--ink-2); font-size: 14px; }
-.pub .a b { color: var(--ink); font-weight: 600; }
-.pub .v { font-size: 14px; color: var(--ink-3); display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; }
-.pub .v i { font-style: italic; color: var(--ink-2); }
-.badge { font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; border: 1px solid currentColor; }
-.badge.surg { color: var(--surg); }
-.badge.perc { color: var(--perc); }
-.pub .v a { font-weight: 500; }
-.pub[hidden], .year[hidden] { display: none; }
-
-footer { border-top: 1px solid var(--rule); padding-block: 28px 48px; color: var(--ink-3); font-size: 14px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+:root[data-theme="dark"] { --bg: #121212; --ink: #e8e8e8; --ink-2: #a0a0a0; --rule: #2a2a2a; --link: #8bb8e8; color-scheme: dark; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+main { max-width: 760px; margin: 0 auto; padding: 48px 20px 64px; }
+@media (max-width: 480px) { main { padding: 32px 16px 48px; } }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+h1 { font-size: 28px; font-weight: 600; margin: 0 0 4px; }
+.aff { color: var(--ink-2); margin: 0 0 12px; }
+.links { margin: 0 0 40px; }
+.links a { margin-right: 14px; }
+h2 { font-size: 18px; font-weight: 600; margin: 36px 0 4px; padding-bottom: 6px; border-bottom: 1px solid var(--rule); }
+ul { list-style: none; margin: 0; padding: 0; }
+li { padding: 10px 0; }
+.t { font-weight: 600; }
+.m { color: var(--ink-2); font-size: 15px; }
+.l a { font-size: 14px; margin-right: 10px; }
+footer { margin-top: 48px; color: var(--ink-2); font-size: 14px; }
 </style>
 </head>
 <body>
+<main>
 
-<nav class="top" aria-label="Sections">
-  <div class="wrap">
-    <a class="brand" href="#">Matjaž Jogan</a>
-    <ul>
-      <li><a href="#research">Research</a></li>
-      <li class="opt"><a href="#demos">Demos</a></li>
-      <li><a href="#publications">Publications</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+<h1>Matjaž Jogan</h1>
+<p class="aff">Senior Research Investigator, Penn Computer Assisted Surgery and Outcomes Laboratory, Department of Surgery, University of Pennsylvania</p>
+<p class="links">
+  <a href="https://scholar.google.com/citations?user=P_LVCLoAAAAJ&amp;hl=en">Google Scholar</a>
+  <a href="https://www.linkedin.com/in/matjazjogan">LinkedIn</a>
+  <a href="https://github.com/MatjazJogan">GitHub</a>
+  <a href="https://x.com/matjogan">X</a>
+  <a href="mailto:matjaz.jogan@pennmedicine.upenn.edu">Email</a>
+</p>
 
-<header class="hero wrap">
-  <p class="kicker">AI for surgery · Perception</p>
-  <h1>Matjaž Jogan</h1>
-  <p class="bio">I am a Senior Research Investigator in the <b>Penn Computer Assisted Surgery and Outcomes (PCASO) Laboratory</b>, Department of Surgery, University of Pennsylvania. I build machine learning methods that understand surgical video with little or no annotation, and I study how humans perceive the world: how the brain combines noisy sensory signals with prior expectations, and how to measure perception without bias.</p>
-  <div class="links">
-    <a class="pill" href="https://scholar.google.com/citations?user=P_LVCLoAAAAJ&amp;hl=en"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zm-6 9.18v4L12 20l6-3.82v-4L12 16l-6-3.82z"/></svg>Google Scholar</a>
-    <a class="pill" href="https://www.linkedin.com/in/matjazjogan"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3v-11zm6.5 0h3.8v1.5h.05c.53-1 1.84-2.05 3.78-2.05 4.04 0 4.79 2.66 4.79 6.12v5.43h-4v-4.82c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.9h-4v-11z"/></svg>LinkedIn</a>
-    <a class="pill" href="https://github.com/MatjazJogan"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>GitHub</a>
-    <a class="pill" href="https://x.com/matjogan"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.65l-5.21-6.82-5.97 6.82H1.68l7.73-8.84L1.25 2.25h6.82l4.71 6.23 5.46-6.23zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64z"/></svg>X</a>
-    <a class="pill" href="mailto:matjaz.jogan@pennmedicine.upenn.edu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.2L4.4 7H4v.6l8 5.6 8-5.6V7h-.4L12 12.2z"/></svg>Email</a>
-  </div>
-</header>
+<h2>Surgical video understanding</h2>
+<ul>
+  <li>
+    <div class="t">Slot-BERT: Self-supervised object discovery in surgical video</div>
+    <div class="m">G Liao, M Jogan, M Hussing, K Nakahashi, K Yasufuku, A Madani, E Eaton, DA Hashimoto. <i>Medical Image Analysis</i>, 2026.</div>
+    <div class="l"><a href="https://arxiv.org/abs/2501.12477">arXiv</a><a href="https://github.com/PCASOlab/slot-BERT">code</a></div>
+  </li>
+  <li>
+    <div class="t">Active learning for efficient annotation of surgical videos with weak supervision</div>
+    <div class="m">M Dendukuri, M Jogan, DA Hashimoto, G Liao. arXiv preprint, 2026.</div>
+    <div class="l"><a href="https://arxiv.org/abs/2607.13237">arXiv</a></div>
+  </li>
+  <li>
+    <div class="t">FORLA: Federated object-centric representation learning with slot attention</div>
+    <div class="m">G Liao, M Jogan, E Eaton, DA Hashimoto. <i>NeurIPS</i>, 2025.</div>
+    <div class="l"><a href="https://proceedings.neurips.cc/paper_files/paper/2025/hash/923fd1695eaee59610c2bc033a9e2354-Abstract-Conference.html">paper</a><a href="https://arxiv.org/abs/2506.02964">arXiv</a></div>
+  </li>
+  <li>
+    <div class="t">Future slot prediction for unsupervised object discovery in surgical video</div>
+    <div class="m">G Liao, M Jogan, M Hussing, E Zhang, E Eaton, DA Hashimoto. <i>MICCAI</i>, 2025.</div>
+    <div class="l"><a href="https://arxiv.org/abs/2507.01882">arXiv</a></div>
+  </li>
+  <li>
+    <div class="t">Disentangling spatio-temporal knowledge for weakly supervised object detection and segmentation in surgical video</div>
+    <div class="m">G Liao, M Jogan, S Koushik, E Eaton, DA Hashimoto. <i>WACV</i>, 8002–8012, 2025.</div>
+    <div class="l"><a href="https://openaccess.thecvf.com/content/WACV2025/html/Liao_Disentangling_Spatio-Temporal_Knowledge_for_Weakly_Supervised_Object_Detection_and_Segmentation_WACV_2025_paper.html">paper</a><a href="https://arxiv.org/abs/2407.15794">arXiv</a><a href="https://github.com/PCASOlab/VDST-net">code</a></div>
+  </li>
+</ul>
 
-<main class="wrap">
+<h2>Data quality in surgical AI</h2>
+<ul>
+  <li>
+    <div class="t">Quality over quantity? The role of data quality and uncertainty for AI in surgery</div>
+    <div class="m">M Jogan, S Kurada, S Vasisht, V Singh, DA Hashimoto. <i>Global Surgical Education – Journal of the Association for Surgical Education</i>, 2024.</div>
+    <div class="l"><a href="https://doi.org/10.1007/s44186-024-00276-z">paper</a></div>
+  </li>
+</ul>
 
-<section id="research" aria-labelledby="h-research">
-  <h2 id="h-research">Research</h2>
-  <p class="sub">Two lines of work share one question: how a system, artificial or biological, turns ambiguous signals into a reliable interpretation of the world.</p>
-  <div class="themes">
-    <article class="theme">
-      <span class="tag" aria-hidden="true"></span>
-      <h3>Object discovery in surgical video</h3>
-      <p>Object-centric and self-supervised models that find and track instruments and anatomy in surgical video without dense labels, including slot-based architectures that scale across procedures and federated training across hospitals.</p>
-    </article>
-    <article class="theme">
-      <span class="tag" aria-hidden="true"></span>
-      <h3>Data quality and weak supervision</h3>
-      <p>How annotation uncertainty, data quality and label cost shape surgical AI: weakly supervised detection and segmentation from video-level labels, and active learning that halves the effort of annotating surgical video.</p>
-    </article>
-    <article class="theme perc">
-      <span class="tag" aria-hidden="true"></span>
-      <h3>Perception as inference</h3>
-      <p>Bayesian models of visual speed perception and of how the brain integrates sensory channels; unbiased psychophysical methods for measuring perceptual bias; and the multisensory perception of material properties such as viscosity.</p>
-    </article>
-  </div>
-</section>
+<h2>Visual speed perception</h2>
+<ul>
+  <li>
+    <div class="t">Signal integration in human visual speed perception</div>
+    <div class="m">M Jogan, AA Stocker. <i>Journal of Neuroscience</i> 35(25), 9381–9390, 2015.</div>
+    <div class="l"><a href="https://doi.org/10.1523/JNEUROSCI.4801-14.2015">paper</a><a href="https://matjazjogan.github.io/signal-integration/">demo</a></div>
+  </li>
+</ul>
 
-<section id="demos" aria-labelledby="h-demos">
-  <h2 id="h-demos">Interactive pages</h2>
-  <p class="sub">Companion pages that let you try the ideas behind two of our papers in the browser.</p>
-  <div class="demos">
-    <a class="demo" href="https://matjazjogan.github.io/signal-integration/">
-      <div class="demo-art" aria-hidden="true">
-        <svg viewBox="0 0 400 92" preserveAspectRatio="none">
-          <defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="var(--accent)" stop-opacity=".05"/><stop offset=".5" stop-color="var(--accent)" stop-opacity=".55"/><stop offset="1" stop-color="var(--accent)" stop-opacity=".05"/></linearGradient></defs>
-          <g fill="url(#g1)"><rect x="20" y="0" width="14" height="92"/><rect x="62" y="0" width="14" height="92"/><rect x="104" y="0" width="14" height="92"/><rect x="146" y="0" width="14" height="92"/><rect x="188" y="0" width="14" height="92"/></g>
-          <g fill="var(--accent)" opacity=".35"><rect x="230" y="0" width="6" height="92"/><rect x="246" y="0" width="6" height="92"/><rect x="262" y="0" width="6" height="92"/><rect x="278" y="0" width="6" height="92"/><rect x="294" y="0" width="6" height="92"/><rect x="310" y="0" width="6" height="92"/><rect x="326" y="0" width="6" height="92"/><rect x="342" y="0" width="6" height="92"/><rect x="358" y="0" width="6" height="92"/><rect x="374" y="0" width="6" height="92"/></g>
-        </svg>
-      </div>
-      <span class="meta">Jogan &amp; Stocker · J Neurosci 2015</span>
-      <h3>Signal integration in human visual speed perception</h3>
-      <p>Two speed illusions: a grating that seems to slow down as its contrast drops, and one that seems to speed up when a second spatial frequency is added.</p>
-      <span class="go">Open the page →</span>
-    </a>
-    <a class="demo" href="https://matjazjogan.github.io/psychomatrix/">
-      <div class="demo-art" aria-hidden="true">
-        <svg viewBox="0 0 400 92" preserveAspectRatio="none">
-          <path d="M0 84 C120 84 150 8 200 8 S280 8 400 8" fill="none" stroke="var(--accent)" stroke-width="3" opacity=".7"/>
-          <path d="M0 84 C150 84 190 8 240 8 S320 8 400 8" fill="none" stroke="var(--perc)" stroke-width="3" opacity=".7"/>
-          <line x1="200" y1="0" x2="200" y2="92" stroke="var(--ink-3)" stroke-dasharray="3 4" opacity=".6"/>
-        </svg>
-      </div>
-      <span class="meta">Jogan &amp; Stocker · J Vision 2014</span>
-      <h3>An unbiased two-alternative forced-choice method</h3>
-      <p>An interactive comparison of standard 2AFC with our psychomatrix method, showing how decision bias contaminates measurements of perceptual bias and how to remove it.</p>
-      <span class="go">Open the page →</span>
-    </a>
-  </div>
-</section>
+<h2>Psychophysical methods</h2>
+<ul>
+  <li>
+    <div class="t">A new two-alternative forced choice method for the unbiased characterization of perceptual bias and discriminability</div>
+    <div class="m">M Jogan, AA Stocker. <i>Journal of Vision</i> 14(3), 20, 2014.</div>
+    <div class="l"><a href="https://doi.org/10.1167/14.3.20">paper</a><a href="https://matjazjogan.github.io/psychomatrix/">demo</a></div>
+  </li>
+</ul>
 
-<section id="publications" aria-labelledby="h-pubs">
-  <h2 id="h-pubs">Publications</h2>
-  <p class="sub">Selected work since 2014. The full list is on <a href="https://scholar.google.com/citations?user=P_LVCLoAAAAJ&amp;hl=en">Google Scholar</a>.</p>
-  <div class="filters" role="group" aria-label="Filter publications">
-    <button type="button" data-f="all" aria-pressed="true">All</button>
-    <button type="button" data-f="surg" aria-pressed="false">AI for surgery</button>
-    <button type="button" data-f="perc" aria-pressed="false">Perception</button>
-  </div>
-  <div id="publist"></div>
-</section>
+<h2>Material perception</h2>
+<ul>
+  <li>
+    <div class="t">Both optical and rheological properties contribute to viscosity judgements when comparing real liquids using vision and touch</div>
+    <div class="m">J Martin, M Jogan. <i>Royal Society Open Science</i> 12(2), 241170, 2025.</div>
+    <div class="l"><a href="https://doi.org/10.1098/rsos.241170">paper</a></div>
+  </li>
+</ul>
+
+<footer>Full list on <a href="https://scholar.google.com/citations?user=P_LVCLoAAAAJ&amp;hl=en">Google Scholar</a>.</footer>
 
 </main>
-
-<footer class="wrap" id="contact">
-  <span>Matjaž Jogan · Department of Surgery, University of Pennsylvania · <a href="mailto:matjaz.jogan@pennmedicine.upenn.edu">matjaz.jogan@pennmedicine.upenn.edu</a></span>
-  <span><a href="https://scholar.google.com/citations?user=P_LVCLoAAAAJ&amp;hl=en">Scholar</a> · <a href="https://www.linkedin.com/in/matjazjogan">LinkedIn</a> · <a href="https://github.com/MatjazJogan">GitHub</a></span>
-</footer>
-
-<script>
-'use strict';
-// a: authors (Jogan highlighted automatically); links: [label, url]
-const PUBS = [
-  { y: 2026, k: 'surg', t: 'Slot-BERT: Self-supervised object discovery in surgical video',
-    a: 'G Liao, M Jogan, M Hussing, K Nakahashi, K Yasufuku, A Madani, E Eaton, DA Hashimoto', v: 'Medical Image Analysis',
-    links: [['arXiv', 'https://arxiv.org/abs/2501.12477'], ['Code', 'https://github.com/PCASOlab/slot-BERT']] },
-  { y: 2026, k: 'surg', t: 'Active learning for efficient annotation of surgical videos with weak supervision',
-    a: 'M Dendukuri, M Jogan, DA Hashimoto, G Liao', v: 'arXiv preprint',
-    links: [['arXiv', 'https://arxiv.org/abs/2607.13237']] },
-  { y: 2025, k: 'surg', t: 'FORLA: Federated object-centric representation learning with slot attention',
-    a: 'G Liao, M Jogan, E Eaton, DA Hashimoto', v: 'Advances in Neural Information Processing Systems (NeurIPS)',
-    links: [['Paper', 'https://proceedings.neurips.cc/paper_files/paper/2025/hash/923fd1695eaee59610c2bc033a9e2354-Abstract-Conference.html'], ['arXiv', 'https://arxiv.org/abs/2506.02964']] },
-  { y: 2025, k: 'surg', t: 'Future slot prediction for unsupervised object discovery in surgical video',
-    a: 'G Liao, M Jogan, M Hussing, E Zhang, E Eaton, DA Hashimoto', v: 'Medical Image Computing and Computer Assisted Intervention (MICCAI)',
-    links: [['arXiv', 'https://arxiv.org/abs/2507.01882']] },
-  { y: 2025, k: 'surg', t: 'Disentangling spatio-temporal knowledge for weakly supervised object detection and segmentation in surgical video',
-    a: 'G Liao, M Jogan, S Koushik, E Eaton, DA Hashimoto', v: 'IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), 8002–8012',
-    links: [['Paper', 'https://openaccess.thecvf.com/content/WACV2025/html/Liao_Disentangling_Spatio-Temporal_Knowledge_for_Weakly_Supervised_Object_Detection_and_Segmentation_WACV_2025_paper.html'], ['arXiv', 'https://arxiv.org/abs/2407.15794'], ['Code', 'https://github.com/PCASOlab/VDST-net']] },
-  { y: 2025, k: 'perc', t: 'Both optical and rheological properties contribute to viscosity judgements when comparing real liquids using vision and touch',
-    a: 'J Martin, M Jogan', v: 'Royal Society Open Science 12(2), 241170',
-    links: [['Paper', 'https://doi.org/10.1098/rsos.241170']] },
-  { y: 2024, k: 'surg', t: 'Quality over quantity? The role of data quality and uncertainty for AI in surgery',
-    a: 'M Jogan, S Kurada, S Vasisht, V Singh, DA Hashimoto', v: 'Global Surgical Education – Journal of the Association for Surgical Education',
-    links: [['Paper', 'https://doi.org/10.1007/s44186-024-00276-z']] },
-  { y: 2015, k: 'perc', t: 'Signal integration in human visual speed perception',
-    a: 'M Jogan, AA Stocker', v: 'Journal of Neuroscience 35(25), 9381–9390',
-    links: [['Paper', 'https://doi.org/10.1523/JNEUROSCI.4801-14.2015'], ['Interactive page', 'https://matjazjogan.github.io/signal-integration/']] },
-  { y: 2014, k: 'perc', t: 'A new two-alternative forced choice method for the unbiased characterization of perceptual bias and discriminability',
-    a: 'M Jogan, AA Stocker', v: 'Journal of Vision 14(3), 20',
-    links: [['Paper', 'https://doi.org/10.1167/14.3.20'], ['Interactive page', 'https://matjazjogan.github.io/psychomatrix/']] }
-];
-const LABEL = { surg: 'AI for surgery', perc: 'Perception' };
-const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-function render(filter) {
-  const host = document.getElementById('publist'), years = [...new Set(PUBS.map(p => p.y))].sort((a, b) => b - a);
-  host.innerHTML = years.map(y => {
-    const items = PUBS.filter(p => p.y === y && (filter === 'all' || p.k === filter));
-    if (!items.length) return '';
-    return `<div class="year"><h3>${y}</h3><ol>` + items.map(p => `
-      <li class="pub">
-        <span class="t"><a href="${esc(p.links[0][1])}">${esc(p.t)}</a></span>
-        <span class="a">${esc(p.a).replace('M Jogan', '<b>M Jogan</b>')}</span>
-        <span class="v"><i>${esc(p.v)}</i><span class="badge ${p.k}">${LABEL[p.k]}</span>${p.links.map(([l, u]) => `<a href="${esc(u)}">${esc(l)}</a>`).join('')}</span>
-      </li>`).join('') + '</ol></div>';
-  }).join('');
-}
-for (const b of document.querySelectorAll('.filters button')) b.addEventListener('click', () => {
-  for (const o of document.querySelectorAll('.filters button')) o.setAttribute('aria-pressed', String(o === b));
-  render(b.dataset.f);
-});
-render('all');
-</script>
-<noscript><p class="wrap">Publications are listed on <a href="https://scholar.google.com/citations?user=P_LVCLoAAAAJ&amp;hl=en">Google Scholar</a>.</p></noscript>
 </body>
 </html>
