@@ -6,11 +6,11 @@
 <title>Matjaž Jogan</title>
 <meta name="description" content="Matjaž Jogan, Department of Surgery, University of Pennsylvania. Publications in AI for surgery and perception.">
 <style>
-:root { --bg: #fff; --ink: #111; --ink-2: #555; --ink-3: #999; --rule: #e5e5e5; --link: #1a4f8a; --c1: #2a78d6; --c2: #e0662f; --c3: #1baf7a; }
+:root { --bg: #fff; --ink: #111; --ink-2: #555; --ink-3: #999; --rule: #e5e5e5; --link: #1a4f8a; }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) { --bg: #121212; --ink: #e8e8e8; --ink-2: #a0a0a0; --ink-3: #6f6f6f; --rule: #2a2a2a; --link: #8bb8e8; --c1: #4a94e8; --c2: #e8794a; --c3: #2bc28c; color-scheme: dark; }
+  :root:not([data-theme="light"]) { --bg: #121212; --ink: #e8e8e8; --ink-2: #a0a0a0; --ink-3: #6f6f6f; --rule: #2a2a2a; --link: #8bb8e8; color-scheme: dark; }
 }
-:root[data-theme="dark"] { --bg: #121212; --ink: #e8e8e8; --ink-2: #a0a0a0; --ink-3: #6f6f6f; --rule: #2a2a2a; --link: #8bb8e8; --c1: #4a94e8; --c2: #e8794a; --c3: #2bc28c; color-scheme: dark; }
+:root[data-theme="dark"] { --bg: #121212; --ink: #e8e8e8; --ink-2: #a0a0a0; --ink-3: #6f6f6f; --rule: #2a2a2a; --link: #8bb8e8; color-scheme: dark; }
 body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
 main { max-width: 820px; margin: 0 auto; padding: 48px 20px 64px; }
 @media (max-width: 480px) { main { padding: 32px 16px 48px; } }
@@ -22,9 +22,10 @@ h1 { font-size: 28px; font-weight: 600; margin: 0 0 4px; }
 .links a { margin-right: 14px; }
 h2 { font-size: 18px; font-weight: 600; margin: 36px 0 4px; padding-bottom: 6px; border-bottom: 1px solid var(--rule); }
 ul { list-style: none; margin: 0; padding: 0; }
-li { padding: 12px 0; display: grid; grid-template-columns: 120px 1fr; gap: 18px; align-items: start; }
-.th svg { display: block; width: 120px; height: 90px; border: 1px solid var(--rule); border-radius: 6px; }
-@media (max-width: 560px) { li { grid-template-columns: 72px 1fr; gap: 12px; } .th svg { width: 72px; height: 54px; } }
+li { padding: 12px 0; }
+li.fig { display: grid; grid-template-columns: 1fr 150px; gap: 20px; align-items: start; }
+.th img { display: block; width: 150px; height: 100px; object-fit: contain; background: #fff; border: 1px solid var(--rule); border-radius: 6px; }
+@media (max-width: 560px) { li.fig { grid-template-columns: 1fr 96px; gap: 12px; } .th img { width: 96px; height: 64px; } }
 .t { font-weight: 600; }
 .m { color: var(--ink-2); font-size: 15px; }
 .m b { color: var(--ink); font-weight: 600; }
@@ -48,15 +49,13 @@ footer { margin-top: 48px; color: var(--ink-2); font-size: 14px; }
 <h2>Data and evaluation in surgical AI</h2>
 <ul>
   <li>
-    <div class="th"></div>
-    <div>
+    <div class="tx">
       <div class="t">A foundation for evaluating the surgical artificial intelligence literature</div>
       <div class="m">DA Hashimoto, SK Sambasastry, V Singh, S Kurada, M Altieri, T Yoshida, A Madani, <b>M Jogan</b>. <i>European Journal of Surgical Oncology</i> 50(12), 108014, 2024.</div>
     </div>
   </li>
   <li>
-    <div class="th"><a href="https://doi.org/10.1007/s44186-024-00276-z" tabindex="-1" aria-hidden="true"><svg viewBox="0 0 120 90" role="img" aria-label="Three annotators outlining the same structure"><rect x="10" y="10" width="100" height="70" rx="4" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="var(--ink-3)" stroke-width="1.2"/><path d="M38 30 C50 18 78 22 82 40 C86 58 62 66 48 60 C34 54 28 40 38 30 Z" stroke="var(--c1)" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M42 26 C58 16 84 28 84 44 C84 62 58 64 44 56 C32 50 32 34 42 26 Z" stroke="var(--c2)" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M36 34 C44 22 72 18 78 36 C84 52 66 62 52 60 C38 58 30 46 36 34 Z" stroke="var(--c3)" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
-    <div>
+    <div class="tx">
       <div class="t">Quality over quantity? The role of data quality and uncertainty for AI in surgery</div>
       <div class="m"><b>M Jogan</b>, S Kurada, S Vasisht, V Singh, DA Hashimoto. <i>Global Surgical Education</i> 3(1), 79, 2024.</div>
       <div class="l"><a href="https://doi.org/10.1007/s44186-024-00276-z">paper</a></div>
@@ -67,70 +66,61 @@ footer { margin-top: 48px; color: var(--ink-2); font-size: 14px; }
 <h2>Surgical video understanding and clinical applications</h2>
 <ul>
   <li>
-    <div class="th"></div>
-    <div>
+    <div class="tx">
       <div class="t">Slot2Text: Object-centric visual tokenization for efficient and spatially traceable surgical MLLMs</div>
       <div class="m">G Liao, <b>M Jogan</b>, DA Hashimoto. arXiv preprint arXiv:2608.01473, 2026.</div>
       <div class="l"><a href="https://arxiv.org/abs/2608.01473">arXiv</a></div>
     </div>
   </li>
   <li>
-    <div class="th"></div>
-    <div>
+    <div class="tx">
       <div class="t">DenseTRF: Texture-aware unsupervised representation adaptation for surgical scene dense prediction</div>
       <div class="m">G Liao, <b>M Jogan</b>, DA Hashimoto. <i>MICCAI 2026</i>, 123–133, 2026.</div>
     </div>
   </li>
   <li>
-    <div class="th"><a href="https://arxiv.org/abs/2501.12477" tabindex="-1" aria-hidden="true"><svg viewBox="0 0 120 90" role="img" aria-label="Object slots tracked across video frames"><rect x="10" y="10" width="58" height="42" rx="3" fill="var(--bg)" stroke="var(--ink-3)" stroke-width="1.2" opacity="0.5"/><rect x="22" y="22" width="58" height="42" rx="3" fill="var(--bg)" stroke="var(--ink-3)" stroke-width="1.2" opacity="0.75"/><rect x="34" y="34" width="58" height="42" rx="3" fill="var(--bg)" stroke="var(--ink-3)" stroke-width="1.2" opacity="1"/><ellipse cx="50" cy="58" rx="10" ry="7" fill="var(--c1)" opacity=".75"/><path d="M64 68 L84 44" stroke="var(--c2)" stroke-width="5" opacity=".85" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="78" cy="66" r="5" fill="var(--c3)" opacity=".8"/><path d="M100 20 V70" stroke="var(--ink-3)" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="104" y="24" width="8" height="8" rx="2" fill="var(--c1)" opacity=".8"/><rect x="104" y="38" width="8" height="8" rx="2" fill="var(--c2)" opacity=".8"/><rect x="104" y="52" width="8" height="8" rx="2" fill="var(--c3)" opacity=".8"/></svg></a></div>
-    <div>
+    <div class="tx">
       <div class="t">Slot-BERT: Self-supervised object discovery in surgical video</div>
       <div class="m">G Liao, <b>M Jogan</b>, M Hussing, K Nakahashi, K Yasufuku, A Madani, E Eaton, DA Hashimoto. <i>Medical Image Analysis</i>, 103972, 2026.</div>
       <div class="l"><a href="https://arxiv.org/abs/2501.12477">arXiv</a><a href="https://github.com/PCASOlab/slot-BERT">code</a></div>
     </div>
   </li>
   <li>
-    <div class="th"></div>
-    <div>
+    <div class="tx">
       <div class="t">Active learning for efficient annotation of surgical videos with weak supervision</div>
       <div class="m">M Dendukuri, <b>M Jogan</b>, DA Hashimoto, G Liao. arXiv preprint arXiv:2607.13237, 2026.</div>
       <div class="l"><a href="https://arxiv.org/abs/2607.13237">arXiv</a></div>
     </div>
   </li>
   <li>
-    <div class="th"></div>
-    <div>
+    <div class="tx">
       <div class="t">Feasibility of semantic segmentation of anatomical structures during minimally invasive lobectomy using a transformer-based deep learning architecture</div>
       <div class="m">K Nakahashi, T Yoshida, <b>M Jogan</b>, K Kazlovich, T Koga, F Yokote, T Yanagihara, A Effat, G Liao, H Kosoy, et al. <i>JTCVS Open</i>, 101705, 2026.</div>
     </div>
   </li>
   <li>
-    <div class="th"><a href="https://proceedings.neurips.cc/paper_files/paper/2025/hash/923fd1695eaee59610c2bc033a9e2354-Abstract-Conference.html" tabindex="-1" aria-hidden="true"><svg viewBox="0 0 120 90" role="img" aria-label="Several sites sharing one slot-attention model"><path d="M18 18 L60 45" stroke="var(--ink-3)" stroke-width="1.2" stroke-dasharray="3 3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 72 L60 45" stroke="var(--ink-3)" stroke-width="1.2" stroke-dasharray="3 3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M102 45 L60 45" stroke="var(--ink-3)" stroke-width="1.2" stroke-dasharray="3 3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="7" y="10" width="22" height="16" rx="3" fill="var(--bg)" stroke="var(--ink-2)" stroke-width="1.2"/><rect x="7" y="64" width="22" height="16" rx="3" fill="var(--bg)" stroke="var(--ink-2)" stroke-width="1.2"/><rect x="91" y="37" width="22" height="16" rx="3" fill="var(--bg)" stroke="var(--ink-2)" stroke-width="1.2"/><circle cx="60" cy="45" r="13" fill="var(--bg)" stroke="var(--ink)" stroke-width="1.6"/><circle cx="55" cy="42" r="3" fill="var(--c1)"/><circle cx="65" cy="42" r="3" fill="var(--c2)"/><circle cx="60" cy="50" r="3" fill="var(--c3)"/></svg></a></div>
-    <div>
+    <div class="tx">
       <div class="t">FORLA: Federated object-centric representation learning with slot attention</div>
       <div class="m">G Liao, <b>M Jogan</b>, E Eaton, DA Hashimoto. <i>NeurIPS 2025</i>, 2025.</div>
       <div class="l"><a href="https://proceedings.neurips.cc/paper_files/paper/2025/hash/923fd1695eaee59610c2bc033a9e2354-Abstract-Conference.html">paper</a><a href="https://arxiv.org/abs/2506.02964">arXiv</a></div>
     </div>
   </li>
   <li>
-    <div class="th"><a href="https://arxiv.org/abs/2507.01882" tabindex="-1" aria-hidden="true"><svg viewBox="0 0 120 90" role="img" aria-label="Slots predicted into a future frame"><rect x="6" y="26" width="32" height="26" rx="3" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="var(--ink-3)" stroke-width="1.2"/><rect x="44" y="26" width="32" height="26" rx="3" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="var(--ink-3)" stroke-width="1.2"/><rect x="82" y="26" width="32" height="26" rx="3" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="var(--ink-3)" stroke-width="1.2" stroke-dasharray="3 3"/><circle cx="16" cy="36" r="4" fill="var(--c1)" opacity="0.8"/><circle cx="28" cy="44" r="4" fill="var(--c2)" opacity="0.8"/><circle cx="56" cy="37" r="4" fill="var(--c1)" opacity="0.8"/><circle cx="66" cy="43" r="4" fill="var(--c2)" opacity="0.8"/><circle cx="96" cy="38" r="4" fill="var(--c1)" opacity="0.45"/><circle cx="104" cy="42" r="4" fill="var(--c2)" opacity="0.45"/><path d="M22 64 Q60 80 98 64" stroke="var(--ink-2)" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M93 62 L98 64 L94 68" stroke="var(--ink-2)" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="22" y="20" font-size="9" text-anchor="middle" fill="var(--ink-3)" font-family="system-ui,sans-serif">t</text><text x="60" y="20" font-size="9" text-anchor="middle" fill="var(--ink-3)" font-family="system-ui,sans-serif">t+1</text><text x="98" y="20" font-size="9" text-anchor="middle" fill="var(--ink-3)" font-family="system-ui,sans-serif">t+2</text></svg></a></div>
-    <div>
+    <div class="tx">
       <div class="t">Future slot prediction for unsupervised object discovery in surgical video</div>
       <div class="m">G Liao, <b>M Jogan</b>, M Hussing, E Zhang, E Eaton, DA Hashimoto. <i>MICCAI 2025</i>, 219–229, 2025.</div>
       <div class="l"><a href="https://arxiv.org/abs/2507.01882">arXiv</a></div>
     </div>
   </li>
   <li>
-    <div class="th"><a href="https://openaccess.thecvf.com/content/WACV2025/html/Liao_Disentangling_Spatio-Temporal_Knowledge_for_Weakly_Supervised_Object_Detection_and_Segmentation_WACV_2025_paper.html" tabindex="-1" aria-hidden="true"><svg viewBox="0 0 120 90" role="img" aria-label="Instrument localized from a video-level label"><defs><radialGradient id="cam" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="var(--c2)" stop-opacity=".9"/><stop offset=".6" stop-color="var(--c2)" stop-opacity=".35"/><stop offset="1" stop-color="var(--c2)" stop-opacity="0"/></radialGradient></defs><rect x="10" y="10" width="100" height="70" rx="4" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="var(--ink-3)" stroke-width="1.2"/><ellipse cx="66" cy="42" rx="28" ry="20" fill="url(#cam)"/><path d="M24 72 L70 38" stroke="var(--ink)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M70 38 L80 30 M70 38 L82 40" stroke="var(--ink)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="16" y="22" font-size="9" fill="var(--ink-3)" font-family="system-ui,sans-serif">tool: yes</text></svg></a></div>
-    <div>
+    <div class="tx">
       <div class="t">Disentangling spatio-temporal knowledge for weakly supervised object detection and segmentation in surgical video</div>
       <div class="m">G Liao, <b>M Jogan</b>, S Koushik, E Eaton, DA Hashimoto. <i>WACV 2025</i>, 8013–8023, 2025.</div>
       <div class="l"><a href="https://openaccess.thecvf.com/content/WACV2025/html/Liao_Disentangling_Spatio-Temporal_Knowledge_for_Weakly_Supervised_Object_Detection_and_Segmentation_WACV_2025_paper.html">paper</a><a href="https://arxiv.org/abs/2407.15794">arXiv</a><a href="https://github.com/PCASOlab/VDST-net">code</a></div>
     </div>
   </li>
   <li>
-    <div class="th"></div>
-    <div>
+    <div class="tx">
       <div class="t">Artificial intelligence guidance for safe dissection in per oral endoscopic myotomy</div>
       <div class="m">S Vasisht, RM Sharma, VK Singh, G Liao, <b>M Jogan</b>, E Eaton, J Marks, GG Ginsberg. <i>Journal of the American College of Surgeons</i>, 2025.</div>
     </div>
@@ -140,22 +130,19 @@ footer { margin-top: 48px; color: var(--ink-2); font-size: 14px; }
 <h2>Material perception</h2>
 <ul>
   <li>
-    <div class="th"><svg viewBox="0 0 120 90" role="img" aria-label="A finger pressing into a soft material"><path d="M8 52 C34 52 40 52 46 58 C52 66 68 66 74 58 C80 52 86 52 112 52 L112 80 L8 80 Z" fill="var(--c1)" opacity=".25"/><path d="M8 52 C34 52 40 52 46 58 C52 66 68 66 74 58 C80 52 86 52 112 52" stroke="var(--c1)" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M50 8 V44 C50 54 54 60 60 60 C66 60 70 54 70 44 V8" fill="var(--bg)" stroke="var(--ink-2)" stroke-width="1.4"/><path d="M54 46 C56 50 64 50 66 46" stroke="var(--ink-3)" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    <div>
+    <div class="tx">
       <div class="t">Human interaction with viscoelastic matter</div>
       <div class="m">J Martin, <b>M Jogan</b>, E Burgeson, S Rogers. <i>npj Soft Matter</i> 2(1), 25, 2026.</div>
     </div>
   </li>
   <li>
-    <div class="th"></div>
-    <div>
+    <div class="tx">
       <div class="t">Establishing direct relationships between soft material perception and rheology</div>
       <div class="m">EM Burgeson, JD Martin, <b>M Jogan</b>, SA Rogers. <i>Soft Matter</i> 22(14), 2666–2677, 2026.</div>
     </div>
   </li>
   <li>
-    <div class="th"><a href="https://doi.org/10.1098/rsos.241170" tabindex="-1" aria-hidden="true"><svg viewBox="0 0 120 90" role="img" aria-label="A transparent and an opaque liquid of different viscosity"><path d="M14 18 H50 L44 30 H20 Z" fill="var(--bg)" stroke="var(--ink-2)" stroke-width="1.2"/><path d="M70 18 H106 L100 30 H76 Z" fill="var(--bg)" stroke="var(--ink-2)" stroke-width="1.2"/><path d="M30 30 C30 50 34 62 32 76 L36 76 C38 62 36 48 34 30 Z" fill="var(--c1)" opacity=".35" stroke="var(--c1)" stroke-width="1"/><path d="M84 30 C82 50 84 64 82 76 L94 76 C92 62 94 48 92 30 Z" fill="var(--c2)" opacity=".9"/><path d="M10 78 H110" stroke="var(--ink-3)" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
-    <div>
+    <div class="tx">
       <div class="t">Both optical and rheological properties contribute to viscosity judgements when comparing real liquids using vision and touch</div>
       <div class="m">J Martin, <b>M Jogan</b>. <i>Royal Society Open Science</i> 12(2), 241170, 2025.</div>
       <div class="l"><a href="https://doi.org/10.1098/rsos.241170">paper</a></div>
@@ -165,21 +152,21 @@ footer { margin-top: 48px; color: var(--ink-2); font-size: 14px; }
 
 <h2>Visual perception and psychophysical methods</h2>
 <ul>
-  <li>
-    <div class="th"><a href="https://matjazjogan.github.io/signal-integration/" tabindex="-1" aria-hidden="true"><svg viewBox="0 0 120 90" role="img" aria-label="Two channel likelihoods and their optimal combination"><path d="M8 30 L112 70" stroke="var(--ink-3)" stroke-width="1.2" stroke-dasharray="3 3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.0,78.0 L9.7,78.0 L11.5,78.0 L13.2,78.0 L14.9,78.0 L16.7,78.0 L18.4,78.0 L20.1,78.0 L21.9,78.0 L23.6,77.9 L25.3,77.9 L27.1,77.9 L28.8,77.8 L30.5,77.7 L32.3,77.5 L34.0,77.3 L35.7,76.9 L37.5,76.5 L39.2,75.9 L40.9,75.2 L42.7,74.3 L44.4,73.1 L46.1,71.7 L47.9,70.0 L49.6,68.1 L51.3,65.9 L53.1,63.4 L54.8,60.8 L56.5,58.1 L58.3,55.4 L60.0,52.7 L61.7,50.2 L63.5,48.0 L65.2,46.2 L66.9,44.9 L68.7,44.2 L70.4,44.0 L72.1,44.5 L73.9,45.5 L75.6,47.0 L77.3,49.0 L79.1,51.3 L80.8,53.9 L82.5,56.6 L84.3,59.4 L86.0,62.1 L87.7,64.6 L89.5,66.9 L91.2,69.0 L92.9,70.8 L94.7,72.4 L96.4,73.7 L98.1,74.7 L99.9,75.6 L101.6,76.2 L103.3,76.7 L105.1,77.1 L106.8,77.4 L108.5,77.6 L110.3,77.7 L112.0,77.8" stroke="var(--c1)" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.0,78.0 L9.7,78.0 L11.5,78.0 L13.2,78.0 L14.9,78.0 L16.7,78.0 L18.4,78.0 L20.1,78.0 L21.9,78.0 L23.6,78.0 L25.3,78.0 L27.1,78.0 L28.8,78.0 L30.5,78.0 L32.3,78.0 L34.0,77.9 L35.7,77.9 L37.5,77.8 L39.2,77.7 L40.9,77.6 L42.7,77.3 L44.4,76.9 L46.1,76.4 L47.9,75.6 L49.6,74.6 L51.3,73.2 L53.1,71.5 L54.8,69.3 L56.5,66.7 L58.3,63.6 L60.0,60.2 L61.7,56.5 L63.5,52.7 L65.2,49.0 L66.9,45.5 L68.7,42.4 L70.4,40.1 L72.1,38.6 L73.9,38.0 L75.6,38.4 L77.3,39.8 L79.1,42.0 L80.8,45.0 L82.5,48.4 L84.3,52.1 L86.0,55.9 L87.7,59.7 L89.5,63.1 L91.2,66.2 L92.9,68.9 L94.7,71.2 L96.4,73.0 L98.1,74.4 L99.9,75.5 L101.6,76.3 L103.3,76.9 L105.1,77.3 L106.8,77.5 L108.5,77.7 L110.3,77.8 L112.0,77.9" stroke="var(--c2)" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.0,78.0 L9.7,78.0 L11.5,78.0 L13.2,78.0 L14.9,78.0 L16.7,78.0 L18.4,78.0 L20.1,78.0 L21.9,78.0 L23.6,78.0 L25.3,78.0 L27.1,78.0 L28.8,78.0 L30.5,78.0 L32.3,78.0 L34.0,78.0 L35.7,78.0 L37.5,78.0 L39.2,77.9 L40.9,77.8 L42.7,77.5 L44.4,77.1 L46.1,76.2 L47.9,74.8 L49.6,72.5 L51.3,69.1 L53.1,64.4 L54.8,58.3 L56.5,50.9 L58.3,42.7 L60.0,34.4 L61.7,27.0 L63.5,21.3 L65.2,18.3 L66.9,18.5 L68.7,21.7 L70.4,27.5 L72.1,35.1 L73.9,43.4 L75.6,51.6 L77.3,58.8 L79.1,64.8 L80.8,69.4 L82.5,72.7 L84.3,74.9 L86.0,76.3 L87.7,77.1 L89.5,77.6 L91.2,77.8 L92.9,77.9 L94.7,78.0 L96.4,78.0 L98.1,78.0 L99.9,78.0 L101.6,78.0 L103.3,78.0 L105.1,78.0 L106.8,78.0 L108.5,78.0 L110.3,78.0 L112.0,78.0" stroke="var(--ink)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 78 H112" stroke="var(--ink-3)" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
-    <div>
+  <li class="fig">
+    <div class="tx">
       <div class="t">Signal integration in human visual speed perception</div>
       <div class="m"><b>M Jogan</b>, AA Stocker. <i>Journal of Neuroscience</i> 35(25), 9381–9390, 2015.</div>
       <div class="l"><a href="https://doi.org/10.1523/JNEUROSCI.4801-14.2015">paper</a><a href="https://matjazjogan.github.io/signal-integration/">demo</a></div>
     </div>
+    <div class="th"><a href="https://matjazjogan.github.io/signal-integration/" tabindex="-1"><img src="img/signal-integration.svg" alt="Optimal integration of two speed channels" loading="lazy"></a></div>
   </li>
-  <li>
-    <div class="th"><a href="https://matjazjogan.github.io/psychomatrix/" tabindex="-1" aria-hidden="true"><svg viewBox="0 0 120 90" role="img" aria-label="Psychometric functions with shifted points of subjective equality"><path d="M10 45 H110" stroke="var(--ink-3)" stroke-width="1" stroke-dasharray="3 3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.0,76.0 L12.0,76.0 L14.0,76.0 L16.0,75.9 L18.0,75.9 L20.0,75.8 L22.0,75.6 L24.0,75.4 L26.0,75.1 L28.0,74.6 L30.0,73.9 L32.0,73.0 L34.0,71.9 L36.0,70.3 L38.0,68.5 L40.0,66.2 L42.0,63.5 L44.0,60.3 L46.0,56.9 L48.0,53.1 L50.0,49.1 L52.0,45.0 L54.0,40.9 L56.0,36.9 L58.0,33.1 L60.0,29.7 L62.0,26.5 L64.0,23.8 L66.0,21.5 L68.0,19.7 L70.0,18.1 L72.0,17.0 L74.0,16.1 L76.0,15.4 L78.0,14.9 L80.0,14.6 L82.0,14.4 L84.0,14.2 L86.0,14.1 L88.0,14.1 L90.0,14.0 L92.0,14.0 L94.0,14.0 L96.0,14.0 L98.0,14.0 L100.0,14.0 L102.0,14.0 L104.0,14.0 L106.0,14.0 L108.0,14.0 L110.0,14.0" stroke="var(--c1)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.0,76.0 L12.0,76.0 L14.0,76.0 L16.0,76.0 L18.0,75.9 L20.0,75.9 L22.0,75.9 L24.0,75.8 L26.0,75.7 L28.0,75.6 L30.0,75.5 L32.0,75.2 L34.0,75.0 L36.0,74.6 L38.0,74.1 L40.0,73.5 L42.0,72.8 L44.0,71.9 L46.0,70.8 L48.0,69.4 L50.0,67.9 L52.0,66.2 L54.0,64.2 L56.0,61.9 L58.0,59.5 L60.0,56.9 L62.0,54.1 L64.0,51.1 L66.0,48.1 L68.0,45.0 L70.0,41.9 L72.0,38.9 L74.0,35.9 L76.0,33.1 L78.0,30.5 L80.0,28.1 L82.0,25.8 L84.0,23.8 L86.0,22.1 L88.0,20.6 L90.0,19.2 L92.0,18.1 L94.0,17.2 L96.0,16.5 L98.0,15.9 L100.0,15.4 L102.0,15.0 L104.0,14.8 L106.0,14.5 L108.0,14.4 L110.0,14.3" stroke="var(--c2)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M52 45 V78 M68 45 V78" stroke="var(--ink-3)" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 78 H110" stroke="var(--ink-3)" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
-    <div>
+  <li class="fig">
+    <div class="tx">
       <div class="t">A new two-alternative forced choice method for the unbiased characterization of perceptual bias and discriminability</div>
       <div class="m"><b>M Jogan</b>, AA Stocker. <i>Journal of Vision</i> 14(3), 20, 2014.</div>
       <div class="l"><a href="https://doi.org/10.1167/14.3.20">paper</a><a href="https://matjazjogan.github.io/psychomatrix/">demo</a></div>
     </div>
+    <div class="th"><a href="https://matjazjogan.github.io/psychomatrix/" tabindex="-1"><img src="img/psychomatrix.png" alt="Fitted psychomatrix" loading="lazy"></a></div>
   </li>
 </ul>
 
